@@ -1,13 +1,13 @@
 # AOT-Wikis-API
 A FastAPI implementation of AOT Wikis of Characters to understand FastAPI concepts
 
-# Build:
+## Build:
 To build the API run `docker build`:
 
     docker build -t limebrewofficial/aot-wikis:1.0.0 .
 
 
-# Build and Run:
+## Build and Run:
 To build and run directly, use `docker-compose`:
 
     docker-compose up -d --build
@@ -22,7 +22,7 @@ to down the application:
     docker compose down
 
 
-# Multi-platform Builds:
+## Multi-platform Builds:
 To build a multi-platform build for a image, use `docker buildx` and push it to `docker hub`
 
     docker buildx create --use  # One time step
@@ -30,7 +30,7 @@ To build a multi-platform build for a image, use `docker buildx` and push it to 
     docker buildx build --push --platform linux/arm64/v8,linux/amd64 --tag limebrewofficial/aot-wikis:1.0.0 .
 
 
-# Routes:
+## Routes:
 
 1. `/aot-wiki/all`: Get All Characters of AOT
 
