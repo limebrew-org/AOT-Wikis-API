@@ -1,6 +1,10 @@
 # AOT-Wikis-API
 A FastAPI implementation of AOT Wikis of Characters to understand FastAPI concepts
 
+## Run Server:
+To start the server locally, run:
+
+    uvicorn server:app --host "0.0.0.0" --port 8000 --reload --workers 3
 ## Build:
 To build the API run `docker build`:
 
@@ -39,3 +43,5 @@ To build a multi-platform build for a image, use `docker buildx` and push it to 
 3. `/aot-wiki?birth_place=Shinganshina`: Filter AOT Characters by Birth Place
 
 4. `/aot-wiki?race=Eldian`: Filter AOT Characters by Race
+
+5. `/aot-wiki/add`: Add a new character

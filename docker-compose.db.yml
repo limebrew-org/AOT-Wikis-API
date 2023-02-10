@@ -1,0 +1,17 @@
+version: "3.1"
+services:
+    db:
+        #? Set container name
+        container_name: aot_wiki_db
+        image: mongo:latest
+
+        #? Restart if down
+        restart: always
+
+        #? Environment file
+        environment:
+            - MONGO_INITDB_DATABASE=aot_wiki_db
+
+        #? Ports
+        ports:
+            - "27017:27017"
