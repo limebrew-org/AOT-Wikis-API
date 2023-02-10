@@ -8,7 +8,7 @@ services:
     env_file:
       - .env
 
-    #Build from current directory
+    ##?Build from current directory
     build:
       context: .
       dockerfile: Dockerfile
@@ -17,6 +17,29 @@ services:
 
     entrypoint: uvicorn server:app --host 0.0.0.0 --port ${AOT_WIKI_API_PORT} --workers 3 --reload
 
-    #Expose port
+    ##?Expose port
     ports:
       - ${AOT_WIKI_API_PORT}:${AOT_WIKI_API_PORT}
+    
+    volumes:
+      - ./api:/app/api
+
+    depends_on:
+      - db
+
+  db:
+    #? Set container name
+    container_name: aot_wiki_db
+    image: mongo:latest
+
+    #? Restart if down
+    restart: always
+
+    #? Environment file
+    env_file:
+        - .env
+
+    #? Ports
+    ports:
+        - ${AOT_WIKI_DB_PORT}:${AOT_WIKI_DB_PORT}
+
