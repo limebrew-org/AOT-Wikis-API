@@ -1,23 +1,30 @@
 import json
+from api.models import CharacterModelResponse
 
 
-##! Load Database 
-def loadDB():
-    with open('db.json','r') as f:
-        db = json.load(f)
-    f.close()
-    return db
-
-
-##! Save Database 
-def saveDB(info:dict):
-    with open('db.json','w') as f:
-        json.dump(info,f,indent=4)
-    f.close()
-
-##! 
+##?
 def getEntities(dbResponse):
     entityList = []
     for document in dbResponse:
-        entityList.append(document)
+        entityModel = CharacterModelResponse(
+            id = str(document['_id']),
+            name = document['name'],
+            about = document['about'],
+            birth_place = document['birth_place'],
+            occupation = document['occupation'],
+            abilities = document['abilities'],
+            race = document['race']
+        )
+        
+        entityList.append(entityModel)
     return entityList
+
+##? Handle Environment vaariables
+def handleEnv(PYENV):
+    if PYENV == 'local':
+        return '.env.local'
+    if PYENV == 'dev':
+        return '.env.dev'
+    if PYENV == 'prod':
+        return '.env.prod'
+

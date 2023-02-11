@@ -5,7 +5,24 @@ from typing import Optional
 
 
 class CharacterModel(BaseModel):
-    id: str = Field(default_factory=uuid.uuid4, alias="_id")
+    name:str
+    about:str
+    birth_place:str
+    occupation:str
+    abilities:list
+    race:str
+
+class CharacterUpdateModel(BaseModel):
+    id: Optional[str]
+    name:str
+    about:str
+    birth_place:str
+    occupation:str
+    abilities:list
+    race:str
+
+class CharacterModelResponse(BaseModel):
+    id: str
     name:str
     about:str
     birth_place:str
@@ -22,7 +39,7 @@ class ResponseBody(BaseModel):
 
 
 class AOTWikiQuery(BaseModel):
-    id: str = Field(default_factory=uuid.uuid4, alias="_id")
+    id: str
     name:str
     abilities:list
     race:str

@@ -18,7 +18,7 @@ class AOTQuery():
         return model.insert_one(character)
 
     @staticmethod
-    async def updateOne(model: CharacterModel, query: AOTWikiQuery, character: CharacterModel):
+    async def updateOne(model: CharacterModel,query: AOTWikiQuery, character: CharacterModel):
         return model.update_one(query, {"$set": character})
 
     @staticmethod
