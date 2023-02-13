@@ -19,7 +19,19 @@ def getEntities(dbResponse):
         entityList.append(entityModel)
     return entityList
 
-##? Handle Environment vaariables
+def getEntity(dbResponse):
+    entityModel = CharacterModelResponse(
+        id = str(dbResponse['_id']),
+        name = dbResponse['name'],
+        about = dbResponse['about'],
+        birth_place = dbResponse['birth_place'],
+        occupation = dbResponse['occupation'],
+        abilities = dbResponse['abilities'],
+        race = dbResponse['race']
+    )
+    return entityModel
+
+##? Handle Environment variables
 def handleEnv(PYENV):
     if PYENV == 'local':
         return '.env.local'

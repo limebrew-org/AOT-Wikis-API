@@ -43,3 +43,18 @@ class AOTWikiQuery(BaseModel):
     name:str
     abilities:list
     race:str
+
+class ResponseSuccessOne(BaseModel):
+    status:str
+    message:Optional[str]
+    data:Optional[dict]
+
+class ResponseSuccessMany(BaseModel):
+    status:str
+    message:Optional[str]
+    data:Optional[list]
+
+class ResponseError(BaseModel):
+    status:str
+    error: Optional[str]
+    

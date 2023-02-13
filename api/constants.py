@@ -4,6 +4,7 @@ from api.utils import handleEnv
 
 
 PYENV = os.environ.get('PYENV', '')
+print("Running in {} environment".format(PYENV))
 config = dotenv_values(handleEnv(PYENV))
 
 MONGO_INITDB_DATABASE=config["MONGO_INITDB_DATABASE"]

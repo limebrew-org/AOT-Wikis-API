@@ -1,5 +1,6 @@
 from api.models import CharacterModel, AOTWikiQuery
-from api.utils import getEntities
+from api.utils import getEntities,getEntity
+from pymongo import ReturnDocument
 
 class AOTQuery():
     def __init__(self):
@@ -11,7 +12,7 @@ class AOTQuery():
 
     @staticmethod
     async def getOne(model: CharacterModel, query: AOTWikiQuery):
-        return getEntities(model.find_one(query))
+        return getEntity(model.find_one(query))
 
     @staticmethod
     async def addOne(model: CharacterModel, character: CharacterModel):
@@ -19,7 +20,7 @@ class AOTQuery():
 
     @staticmethod
     async def updateOne(model: CharacterModel,query: AOTWikiQuery, character: CharacterModel):
-        return model.update_one(query, {"$set": character})
+        return model.find_one_and_update(query, {"$set": character},  return_document = ReturnDocument.AFTER)
 
     @staticmethod
     async def deleteOne(model: CharacterModel, query: AOTWikiQuery):
