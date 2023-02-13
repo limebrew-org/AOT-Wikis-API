@@ -40,8 +40,12 @@ To build a multi-platform build for a image, use `docker buildx` and push it to 
 
 2. `/aot-wiki?name=Mikasa`: Filter AOT Characters by Name
 
-3. `/aot-wiki?birth_place=Shinganshina`: Filter AOT Characters by Birth Place
+3. `/aot-wiki/:id`: Get a character by ID
 
-4. `/aot-wiki?race=Eldian`: Filter AOT Characters by Race
+4. `/aot-wiki?birth_place=Shinganshina`: Filter AOT Characters by Birth Place
 
-5. `/aot-wiki/add`: Add a new character
+5. `/aot-wiki?race=Eldian`: Filter AOT Characters by Race
+
+6. `/aot-wiki/add`: Add a new character
+
+7. `/aot-wiki/update/:id`: Update a character by ID
