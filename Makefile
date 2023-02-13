@@ -33,3 +33,17 @@ compose_db_up_v2:
 
 compose_db_down_v2:
 	docker compose -f docker-compose.db.yml down 
+
+##? Docker Compose Command for latest version
+
+compose_up_latest_v1:
+	docker-compose -f docker-compose.test.yml up -d --build
+
+compose_down_latest_v1:
+	docker-compose -f docker-compose.test.yml down 
+
+compose_up_latest_v2:
+	docker compose -f docker-compose.test.yml up -d --build
+
+compose_down_latest_v2:
+	docker compose -f docker-compose.test.yml down 
