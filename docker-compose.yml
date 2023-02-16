@@ -14,15 +14,13 @@ services:
       context: .
       dockerfile: Dockerfile
 
-    image: saptak619/aot_wiki_api:${AOT_WIKI_API_VERSION}
-
-    ##? Entrypoint
-    entrypoint: uvicorn server:app --host "0.0.0.0" --port 8000 --reload 
+    ##? Set Image Name and Tag
+    image: limebrewofficial/attack-on-titan-wiki-api:${AOT_WIKI_API_VERSION}
 
     ##?Expose port
     ports:
       - ${AOT_WIKI_API_PORT}:${AOT_WIKI_API_PORT}
-    
+
     volumes:
       - ./api:/app/api
 
@@ -39,9 +37,8 @@ services:
 
     #? Environment file
     env_file:
-        - .env
+      - .env
 
     #? Ports
     ports:
-        - ${AOT_WIKI_DB_PORT}:${AOT_WIKI_DB_PORT}
-
+      - ${AOT_WIKI_DB_PORT}:${AOT_WIKI_DB_PORT}
